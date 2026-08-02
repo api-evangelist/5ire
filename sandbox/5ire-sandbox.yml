@@ -1,0 +1,57 @@
+generated: '2026-08-02'
+method: searched
+source: >-
+  https://docs.5ire.org/wallets/metamask/ and https://docs.5ire.org/apps-and-toolkits/testnet-faucet/
+  (content verified via Internet Archive captures 2025-03-18; live origin returned HTTP 530 on 2026-08-02),
+  corroborated by the ethereum-lists/chains registry entries for chain IDs 995 and 997.
+summary: >-
+  5ire's test-vs-live separation is a separate public blockchain rather than a keyed sandbox mode. The Thunder
+  testnet is a full, independently addressed network (EIP-155 chain ID 997) carrying a valueless native token
+  (T5IRE), fronted by its own JSON-RPC endpoint, block explorer and faucet. There are no API keys, so there is no
+  test-key/live-key prefix convention; the environment is selected entirely by which chain ID and RPC URL the
+  client is pointed at. Contracts and Ethereum tooling are byte-identical across the two environments.
+environments:
+  - name: Thunder Testnet
+    mode: test
+    chain_id: 997
+    rpc_url: https://rpc.testnet.5ire.network/
+    explorer: https://testnet.5irescan.io/
+    currency_symbol: T5IRE
+    currency_decimals: 18
+    faucet: https://testnet.5irescan.io/faucet
+    docs: https://docs.5ire.org/apps-and-toolkits/testnet-faucet/
+    note: >-
+      Free test tokens are dispensed by the faucet; T5IRE has no market value. As of 2026-08-02 the host
+      rpc.testnet.5ire.network did not resolve in DNS and testnet.5irescan.io returned HTTP 530.
+  - name: Mainnet
+    mode: live
+    chain_id: 995
+    rpc_url: https://rpc.5ire.network
+    explorer: https://5irescan.io
+    currency_symbol: 5ire
+    currency_decimals: 18
+    faucet: null
+    docs: https://docs.5ire.org/build-on-5irechain/evm-compatibility/
+    note: 'As of 2026-08-02 both hosts returned Cloudflare HTTP 530.'
+key_prefixes: []
+test_values: []
+test_clock: null
+fixtures:
+  - name: Local development chain
+    tool: Ganache
+    docs: https://docs.5ire.org/deploy-smart-contracts/5ire-evm-chain/
+    note: 5ire's contract-deployment docs cover Remix, Explorer, 5ire IDE, Ganache and Hardhat paths.
+  - name: Foundry template
+    tool: Foundry
+    url: https://github.com/5ire-tech/foundry-template
+    note: First-party Foundry scaffold pre-wired for 5ireChain networks.
+  - name: Local node
+    tool: Docker
+    install: docker pull 5irechain/5ire-thunder-node:ga
+    docs: https://github.com/5ire-tech/5ireChain#connect-to-5irechain-thunder-testnet
+    note: >-
+      Running a full or archive node locally exposes the same JSON-RPC surface on port 9944 with
+      --rpc-external --rpc-cors all, giving an offline test target.
+caveats:
+  - No sandbox API keys, test tokens or magic identifiers are published — the separation is network-level only.
+  - No test clock or time-simulation facility exists; block time is whatever the testnet produces.

@@ -1,0 +1,80 @@
+generated: '2026-08-02'
+method: derived
+source: >-
+  Derived from https://github.com/5ire-tech/5ireChain (README, Cargo workspace, precompiles/, frame/, runtime/),
+  https://docs.5ire.org/build-on-5irechain/evm-compatibility/, https://docs.5ire.org/deploy-smart-contracts/native-chain-wasm/,
+  and the ethereum-lists/chains registry entries for chain IDs 995 and 997. No compliance or certification claim
+  was found on any 5ire surface.
+standards:
+  - id: json-rpc-2.0
+    conforms: true
+    evidence: >-
+      Both the EVM and native surfaces speak JSON-RPC 2.0; 5ire's own MetaMask/EVM docs configure clients against a
+      JSON-RPC URL.
+  - id: ethereum-json-rpc
+    conforms: true
+    evidence: >-
+      Documented as EVM-compatible with unmodified Ethereum tooling (MetaMask, Hardhat, Remix, Ganache, wagmi);
+      the node ships the Frontier EVM/Ethereum RPC layer on top of the Polkadot SDK.
+  - id: eip-155-replay-protection
+    conforms: true
+    evidence: 'Distinct registered chain IDs — 995 (mainnet) and 997 (Thunder testnet) — in ethereum-lists/chains.'
+  - id: eip-1193-provider
+    conforms: true
+    evidence: >-
+      The 5ire Wallet browser extension documents a generic web3 injection provider
+      (https://docs.5ire.org/wallets/generic-web3-injection/).
+  - id: erc-20
+    conforms: true
+    evidence: 'EVM-equivalence: 5ire docs cover ERC-20 token deployment via Remix / 5ire IDE / Hardhat.'
+  - id: erc-721
+    conforms: true
+    evidence: 'First-party NFT marketplace template (github.com/5ire-tech/marketplace-template) targets 5ireChain.'
+  - id: substrate-polkadot-sdk
+    conforms: true
+    evidence: 'Repository README: "the Rust implementation of the 5ireChain node, built upon the Polkadot SDK".'
+  - id: scale-codec
+    conforms: true
+    evidence: 'Native surface uses SCALE (Parity codec) types, published as @5ire/types on npm.'
+  - id: ink-wasm-contracts
+    conforms: true
+    evidence: >-
+      Native chain supports WebAssembly smart contracts
+      (https://docs.5ire.org/deploy-smart-contracts/native-chain-wasm/, github.com/5ire-tech/counter-wasm-dapp).
+  - id: nominated-proof-of-stake
+    conforms: true
+    evidence: >-
+      Sustainable Proof of Stake / "Proof of 5ire" with validator and nominator applications
+      (https://docs.5ire.org/sustainable-proof-of-stake/).
+  - id: openapi
+    conforms: false
+    evidence: 'No OpenAPI/Swagger document found on any host or in the GitHub organization (code search, 0 hits).'
+  - id: asyncapi
+    conforms: false
+    evidence: 'No AsyncAPI document found; the event surface is eth_subscribe/WebSocket, undescribed.'
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: 'Errors are JSON-RPC 2.0 error objects, not application/problem+json.'
+  - id: oauth2
+    conforms: false
+    evidence: 'No OAuth 2.0 surface; endpoints are unauthenticated (authentication/5ire-authentication.yml).'
+  - id: oidc
+    conforms: false
+    evidence: 'No /.well-known/openid-configuration retrievable on any host.'
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: >-
+      No /.well-known/security.txt; the archived path returns the docs SPA shell
+      (well-known/5ire-well-known.yml).
+  - id: a2a-agent-card
+    conforms: false
+    evidence: 'No /.well-known/agent-card.json or /.well-known/agent.json on any host.'
+  - id: model-context-protocol
+    conforms: false
+    evidence: 'No first-party MCP server published by 5ire (note the unrelated same-named 5ire.app MCP client).'
+compliance_program:
+  published: false
+  certifications: []
+  note: >-
+    No trust centre, SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP claim, or compliance page was found by
+    probe-security-programs.py or by search. No Compliance or TrustCenter pointer is wired.

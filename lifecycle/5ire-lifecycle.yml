@@ -1,0 +1,68 @@
+generated: '2026-08-02'
+method: probed
+source: >-
+  https://github.com/5ire-tech/5ireChain/releases (GitHub Releases API), live HTTPS probes of every 5ire host on
+  2026-08-02, Internet Archive CDX history for 5ire.org and docs.5ire.org, and the ethereum-lists/chains registry.
+versioning:
+  scheme: semver
+  surface: node software releases (github.com/5ire-tech/5ireChain), not the RPC endpoint
+  current: 1.1.1
+  current_released: '2024-10-07'
+  endpoint_versioning: none
+  runtime_upgrades: forkless Substrate runtime upgrades (spec_version), no client-visible API version
+  docs: https://github.com/5ire-tech/5ireChain/releases
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  note: No deprecation or sunset policy is published. No Deprecation pointer is wired.
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: null
+  note: >-
+    No status page was found. status.5ire.org / status.5ire.network were not reachable and no status link appears
+    in the archived documentation or marketing navigation. No StatusPage pointer is wired.
+deprecated_operations: []
+availability_probe:
+  observed: '2026-08-02'
+  method: HTTPS GET, 12s timeout, 9 hosts x 16 paths (144 requests)
+  summary: >-
+    Every 5ire-operated host returned Cloudflare HTTP 530 (origin error 1016 — origin DNS/connection failure).
+    One testnet RPC host no longer resolves in DNS. The legacy 5ire.webflow.io marketing site and all third-party
+    surfaces (GitHub, npm, Docker Hub, Medium, Discord, X, Telegram) are healthy.
+  hosts:
+    - {host: 5ire.org, status: 530, note: Cloudflare error 1016, DNS resolves to Cloudflare}
+    - {host: www.5ire.org, status: 530}
+    - {host: docs.5ire.org, status: 530}
+    - {host: rpc.5ire.network, status: 530, note: 'JSON-RPC POST eth_chainId returned "error code: 1016"'}
+    - {host: rpc.testnet.5ire.network, status: 0, note: NXDOMAIN — no DNS record}
+    - {host: 5irescan.io, status: 530}
+    - {host: testnet.5irescan.io, status: 530}
+    - {host: explorer.5ire.network, status: 530, note: redirects to 5irescan.io/dashboard, also 530}
+    - {host: staking.5ire.network, status: 530}
+    - {host: validator.5ire.network, status: 530}
+    - {host: nominator.5ire.network, status: 530}
+    - {host: 5ire.webflow.io, status: 200, note: legacy Webflow marketing site, still serving}
+    - {host: 5ire.medium.com, status: 200, note: blog}
+    - {host: github.com/5ire-tech, status: 200, note: 10 public repositories}
+  outage_window:
+    last_known_good: '2025-12-11'
+    evidence: last Internet Archive HTTP 200 capture of https://docs.5ire.org/
+    interpretation: >-
+      Domain registration and Cloudflare delegation are intact (DNSSEC enabled, TLS certificate valid to
+      2026-09-25), so this reads as an origin/hosting outage or teardown rather than an expired domain.
+maintenance_signals:
+  last_node_release: '2024-10-07'
+  last_repo_push: '2025-09-22'
+  last_npm_publish: '2021-12-27'
+  last_docker_push: '2025-04-07'
+  note: >-
+    Recorded as observed facts, not a judgement. The client-library scope (@5ire) has been static since 2021 and
+    the node has not cut a tagged release since October 2024.
+domains:
+  - {domain: 5ire.org, registrar_dns: cloudflare, dnssec: true, cert_expires: '2026-09-25'}
+  - {domain: 5ire.network, registrar_dns: cloudflare, dnssec: true}
+  - {domain: 5irescan.io, registrar_dns: cloudflare}
+  - {domain: 5irechain.com, owner: third-party, note: 'parked and listed for sale on Spaceship — not a 5ire property'}

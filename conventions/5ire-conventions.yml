@@ -1,0 +1,91 @@
+generated: '2026-08-02'
+method: derived
+source: >-
+  Derived from the protocol 5ire's own documentation says it implements — JSON-RPC 2.0 over the Ethereum JSON-RPC
+  method set and the Substrate RPC set — as documented at https://docs.5ire.org/build-on-5irechain/evm-compatibility/,
+  https://docs.5ire.org/build-on-5irechain/transaction-fees/ and https://github.com/5ire-tech/5ireChain.
+  No provider-authored conventions/style guide exists; nothing below is a 5ire-specific invention.
+scope: >-
+  5ireChain has no REST API and publishes no OpenAPI. Its cross-cutting request/response semantics are those of
+  JSON-RPC 2.0 as profiled by the Ethereum JSON-RPC specification (EVM surface) and the Polkadot SDK (native
+  surface). This document records those semantics as they apply to 5ire's endpoints so an agent or integrator does
+  not have to assume them.
+protocol:
+  style: json-rpc
+  version: '2.0'
+  transport: HTTPS POST (EVM) and WebSocket (native Substrate, default port 9944)
+  content_type: application/json
+  envelope:
+    request: '{"jsonrpc":"2.0","id":<int|string>,"method":"<name>","params":[...]}'
+    success: '{"jsonrpc":"2.0","id":<same>,"result":<any>}'
+    error: '{"jsonrpc":"2.0","id":<same>,"error":{"code":<int>,"message":"<string>","data":<any>}}'
+  batching: supported — an array of request objects returns an array of response objects
+  http_status: 'HTTP 200 is returned for both successful and application-error responses; the error is in the body'
+authentication:
+  style: none
+  detail: see authentication/5ire-authentication.yml
+idempotency:
+  http_idempotency_key: false
+  detail: >-
+    There is no Idempotency-Key header or equivalent request-level idempotency contract. Read methods (eth_call,
+    eth_getBalance, eth_getBlockByNumber, …) are naturally idempotent. State-changing calls are not made idempotent
+    by an API convention but by the ledger itself: a signed transaction carries a per-account nonce and an EIP-155
+    chain ID, so resubmitting the identical signed payload is rejected as a duplicate/known transaction rather than
+    executed twice. This is replay protection at the consensus layer, not an HTTP idempotency contract, and no
+    Idempotency pointer is wired for this provider.
+  mechanism: per-account nonce + EIP-155 chain-ID binding (EVM); nonce + mortal era + genesis hash (Substrate)
+pagination:
+  style: none
+  detail: >-
+    No cursor or offset pagination. Bulk reads are expressed as explicit ranges: eth_getLogs takes fromBlock/toBlock
+    (public nodes commonly cap the span), and history is walked by block number or by transaction index. 5ire
+    publishes no documented range cap for its public endpoints.
+filtering:
+  detail: >-
+    eth_newFilter / eth_getFilterChanges / eth_getFilterLogs provide server-side filter objects (address, topics);
+    eth_subscribe over WebSocket provides push subscriptions (newHeads, logs) on the native/WS surface.
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  header: null
+  detail: >-
+    No X-Request-Id or correlation header is documented. The natural correlation key is the JSON-RPC `id` echoed in
+    the response, and for state changes the transaction hash returned by eth_sendRawTransaction.
+data_encoding:
+  quantities: 'hex-encoded, 0x-prefixed, minimal digits (QUANTITY per the Ethereum JSON-RPC spec)'
+  byte_strings: 'hex-encoded, 0x-prefixed, two hex digits per byte (DATA)'
+  block_tags: 'latest | earliest | pending | safe | finalized, or a hex block number'
+  addresses: 20-byte hex, EIP-55 mixed-case checksum accepted
+versioning:
+  scheme: none-at-the-endpoint
+  detail: >-
+    The RPC endpoint is unversioned; there is no /v1 path, version header or date pinning. What changes is the node
+    software (semver GitHub releases, see changelog/5ire-changelog.yml) and the on-chain runtime spec_version
+    delivered by forkless runtime upgrades. Clients detect capability with web3_clientVersion, eth_chainId and,
+    on the native side, state_getRuntimeVersion.
+error_semantics:
+  format: json-rpc-2.0-error-object
+  rfc9457: false
+  detail: >-
+    Errors are JSON-RPC 2.0 error objects. 5ire publishes no provider-specific error registry, so no
+    errors/ artifact is emitted for this provider; the applicable code ranges are the JSON-RPC 2.0 reserved set
+    (-32700 parse error, -32600 invalid request, -32601 method not found, -32602 invalid params, -32603 internal
+    error) and the -32000..-32099 server-defined range that Ethereum clients use for execution reverts, nonce
+    errors and gas-price rejections. Those are specification-level, not 5ire-authored.
+rate_limiting:
+  documented: false
+  headers: []
+  detail: >-
+    No rate-limit policy, quota or RateLimit/Retry-After header behaviour is documented for the public endpoints.
+    Operators who need guarantees are directed to run their own node (docker pull 5irechain/5ire-node:mainnet).
+cost_model:
+  detail: >-
+    Read calls are free at the endpoint. State-changing calls cost gas paid in the native coin (5ire on mainnet,
+    T5IRE on Thunder testnet); see https://docs.5ire.org/build-on-5irechain/transaction-fees/.
+cross_references:
+  authentication: authentication/5ire-authentication.yml
+  sandbox: sandbox/5ire-sandbox.yml
+  lifecycle: lifecycle/5ire-lifecycle.yml
+  conformance: conformance/5ire-conformance.yml

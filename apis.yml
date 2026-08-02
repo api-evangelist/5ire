@@ -1,23 +1,179 @@
 aid: 5ire
 name: 5ire
-description: '5ire is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  5ire (5ireChain) is a layer-1, EVM-compatible smart contract blockchain built on the Polkadot SDK (Substrate),
+  founded in 2021 and headquartered in Dubai with engineering in India. The chain positions sustainability as a
+  first-class protocol concern: its Sustainable Proof of Stake / "Proof of 5ire" consensus scores validators against
+  ESG data so block production and rewards are weighted by environmental and social performance, aligned to the UN
+  Sustainable Development Goals. Developers reach the network through a standard Ethereum JSON-RPC endpoint
+  (mainnet chain ID 995, Thunder testnet chain ID 997) using MetaMask, Hardhat, Foundry, Remix, wagmi and Ganache,
+  or through the native Substrate/WASM side of the chain via the Polkadot-derived @5ire/api JavaScript client.
+  Supporting surfaces include the 5irescan block explorer, a testnet faucet, validator and nominator applications,
+  the 5ire wallet browser extension, and a 5ire IDE for contract deployment. 5ire has raised roughly USD 121M and
+  trades on secondary private markets; it publishes no OpenAPI, AsyncAPI, MCP server or A2A agent card.
+image: https://avatars.githubusercontent.com/u/106282920?v=4
 url: https://raw.githubusercontent.com/api-evangelist/5ire/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
+x-disambiguation: >-
+  This repo profiles 5ire / 5ireChain, the layer-1 blockchain company (5ire.org, github.com/5ire-tech). It is NOT
+  5ire.app (github.com/nanbingxyz/5ire), an unrelated open-source cross-platform desktop AI assistant and MCP
+  client that shares the name.
+x-availability:
+  observed: '2026-08-02'
+  note: >-
+    Every 5ire-operated production host (5ire.org, www.5ire.org, docs.5ire.org, rpc.5ire.network, 5irescan.io,
+    testnet.5irescan.io, explorer.5ire.network, staking/validator/nominator.5ire.network) returned Cloudflare
+    HTTP 530 (origin error 1016) on 2026-08-02; rpc.testnet.5ire.network did not resolve in DNS. DNS still
+    delegates to Cloudflare and the last Wayback 200 for docs.5ire.org is 2025-12-11, so the origin outage is
+    recent rather than a domain lapse. Documentation content referenced below was verified against the Internet
+    Archive; see lifecycle/5ire-lifecycle.yml for the full probe table.
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1
+specificationVersion: '0.21'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
-- Company
-apis: []
+  - blockchain
+  - layer-1
+  - smart-contracts
+  - evm
+  - web3
+  - substrate
+  - json-rpc
+  - sustainability
+  - esg
+  - proof-of-stake
+  - cryptocurrency
+  - developer-tools
+apis:
+  - name: 5ireChain Mainnet JSON-RPC
+    description: >-
+      Ethereum-compatible JSON-RPC 2.0 endpoint for the 5ireChain mainnet (EIP-155 chain ID 995, native currency
+      5ire, 18 decimals). Serves the standard eth_*, net_* and web3_* method families against the EVM machine that
+      runs on the 5ireChain base network, so Ethereum tooling (MetaMask, Hardhat, Foundry, Remix, wagmi, ethers,
+      web3.js) works unmodified. The endpoint is public and unauthenticated; there is no API key, no OpenAPI
+      description, and no published rate-limit contract.
+    humanURL: https://docs.5ire.org/build-on-5irechain/evm-compatibility/
+    baseURL: https://rpc.5ire.network
+    tags:
+      - blockchain
+      - layer-1
+      - evm
+      - json-rpc
+      - smart-contracts
+      - web3
+    properties:
+      - type: Documentation
+        url: https://docs.5ire.org/build-on-5irechain/build-on-5irechain/
+      - type: GettingStarted
+        url: https://docs.5ire.org/introduction-to-5irechain/
+      - type: Explorer
+        url: https://5irescan.io
+      - type: ChainRegistry
+        url: https://chainid.network/chain/995/
+  - name: 5ireChain Thunder Testnet JSON-RPC
+    description: >-
+      Ethereum-compatible JSON-RPC 2.0 endpoint for the 5ireChain Thunder testnet (EIP-155 chain ID 997, native
+      currency T5IRE). Paired with a public faucet and a separate testnet block explorer, this is 5ire's
+      test-vs-live separation: the same contracts and Ethereum tooling target chain ID 997 with valueless test
+      tokens before promotion to mainnet chain ID 995. Public and unauthenticated.
+    humanURL: https://docs.5ire.org/wallets/metamask/
+    baseURL: https://rpc.testnet.5ire.network
+    tags:
+      - blockchain
+      - testnet
+      - evm
+      - json-rpc
+      - sandbox
+      - web3
+    properties:
+      - type: Documentation
+        url: https://docs.5ire.org/wallets/metamask/
+      - type: Sandbox
+        url: sandbox/5ire-sandbox.yml
+      - type: Explorer
+        url: https://testnet.5irescan.io
+      - type: ChainRegistry
+        url: https://chainid.network/chain/997/
+  - name: 5ireChain Native (Substrate) RPC
+    description: >-
+      Substrate/Polkadot-SDK RPC surface of the 5ireChain node, reached over WebSocket (default port 9944) and
+      consumed through the first-party @5ire/api JavaScript client, a fork of the Polkadot.js API. This is the
+      native side of the chain used for WASM (ink!) smart contracts, staking, validator/nominator operations and
+      the ESG consensus pallets, as opposed to the EVM machine exposed over Ethereum JSON-RPC.
+    humanURL: https://docs.5ire.org/deploy-smart-contracts/native-chain-wasm/
+    baseURL: https://rpc.5ire.network
+    tags:
+      - blockchain
+      - substrate
+      - wasm
+      - rpc
+      - staking
+      - web3
+    properties:
+      - type: Documentation
+        url: https://docs.5ire.org/deploy-smart-contracts/native-chain-wasm/
+      - type: SourceCode
+        url: https://github.com/5ire-tech/5ireChain
+      - type: SDKs
+        url: https://www.npmjs.com/package/@5ire/api
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-- FN: APIs.json
-  email: info@apis.io
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+  - FN: APIs.json
+    email: info@apis.io
 common:
-- type: Website
-  url: https://forgeglobal.com/5ire_stock/
+  - type: Website
+    url: https://5ire.org/
+  - type: DeveloperPortal
+    url: https://docs.5ire.org/
+  - type: Documentation
+    url: https://docs.5ire.org/
+  - type: GettingStarted
+    url: https://docs.5ire.org/introduction-to-5irechain/
+  - type: Blog
+    url: https://5ire.medium.com/
+  - type: BlogRSS
+    url: https://5ire.medium.com/feed
+  - type: GitHubOrganization
+    url: https://github.com/5ire-tech
+  - type: SourceCode
+    url: https://github.com/5ire-tech/5ireChain
+  - type: Roadmap
+    url: https://github.com/5ire-tech/5ireChain/blob/master/docs/README.md
+  - type: Support
+    url: https://discord.com/invite/5ire
+  - type: Twitter
+    url: https://x.com/5ireChain
+  - type: Telegram
+    url: https://telegram.me/OfficialFireChain
+  - type: FAQ
+    url: https://docs.5ire.org/faq/faq-list/
+  - type: SecondaryMarket
+    url: https://forgeglobal.com/5ire_stock/
+  - type: Packages
+    url: packages/5ire-packages.yml
+  - type: SDKs
+    url: packages/5ire-packages.yml
+  - type: Sandbox
+    url: sandbox/5ire-sandbox.yml
+  - type: Conventions
+    url: conventions/5ire-conventions.yml
+  - type: Authentication
+    url: authentication/5ire-authentication.yml
+  - type: Conformance
+    url: conformance/5ire-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/5ire-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/5ire-changelog.yml
+  - type: LLMsTxt
+    url: llms/5ire-llms.txt
+  - type: DomainSecurity
+    url: security/5ire-domain-security.yml

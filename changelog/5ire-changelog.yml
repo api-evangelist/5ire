@@ -1,0 +1,109 @@
+generated: '2026-08-02'
+method: searched
+source: https://github.com/5ire-tech/5ireChain/releases
+docs: https://github.com/5ire-tech/5ireChain/releases
+scheme: semver
+surface: >-
+  5ire publishes no product/API changelog page. The only dated, structured release record is GitHub Releases on the
+  5ireChain node repository, where each tag documents runtime features and which environments (Mainnet / QA /
+  Thunder testnet) received the forkless runtime upgrade. Consumer-facing announcements are posted narratively on
+  the Medium blog (https://5ire.medium.com/) and, historically, in the docs "What's New" section (2023 only).
+current_version: 1.1.1
+current_released: '2024-10-07'
+entries:
+  - version: 1.1.1
+    date: '2024-10-07'
+    breaking: false
+    highlights:
+      - '[AUDIT] rewards also distributed on the basis of stake'
+      - Disabled storage migration for pallet-reward
+    runtime_upgrade: true
+  - version: 1.1.0
+    date: '2024-09-16'
+    breaking: false
+    highlights:
+      - '[AUDIT] store_oracle unwrap() hardening'
+      - '[AUDIT] storage migration pallet-reward to NominatorRewards ((ValidatorId, NominatorId) -> reward amount)'
+    runtime_upgrade: true
+  - version: 1.0.9
+    date: '2024-08-14'
+    breaking: false
+    highlights:
+      - '[AUDIT] benchmarking pallet-reward to avoid DoS when calling get_rewards'
+      - '[AUDIT] Oracle can create other Oracles (pallet-esg)'
+    runtime_upgrade: true
+  - version: 1.0.8
+    date: '2024-07-31'
+    breaking: false
+    highlights:
+      - Fixed deterministic proxy contract deployment (Arachnid deterministic-deployment-proxy)
+    runtime_upgrade: true
+  - version: 1.0.5-Thunder
+    date: '2024-07-24'
+    prerelease: true
+    breaking: false
+    highlights:
+      - Existential deposit adjustment on Thunder testnet
+    runtime_upgrade: true
+  - version: 1.0.7
+    date: '2024-07-09'
+    breaking: false
+    highlights:
+      - Fee adjustment
+    runtime_upgrade: true
+  - version: 1.0.6-Mainnet
+    date: '2024-07-05'
+    breaking: false
+    highlights:
+      - Beta mainnet launch
+      - Fixed address decoding issue in pallet-esg
+    runtime_upgrade: true
+  - version: 1.0.6-QA
+    date: '2024-07-05'
+    breaking: false
+    highlights:
+      - Fixed address decoding issue in pallet-esg
+      - Integration test fixes
+    runtime_upgrade: true
+  - version: 1.0.5-QA
+    date: '2024-06-21'
+    breaking: false
+    highlights:
+      - Unified address mapping between the EVM and native account systems
+      - Revenue modelling
+    runtime_upgrade: true
+  - version: 1.0.4
+    date: '2024-06-04'
+    breaking: false
+    highlights:
+      - Hotfix for validator/nominator reward distribution when commission is 0
+    runtime_upgrade: true
+  - version: 1.0.3
+    date: '2024-05-31'
+    breaking: false
+    highlights:
+      - Per-environment Docker image build and upload scripts
+      - Integration test fixes after inflation removal
+  - version: 1.0.2-Thunder
+    date: '2024-05-11'
+    breaking: false
+    highlights:
+      - EVM-to-native swap fix when native balance is 0
+      - Existential deposit set to 0.1 on Thunder
+    runtime_upgrade: true
+  - version: 1.0.2
+    date: '2024-05-09'
+    prerelease: true
+    breaking: false
+    highlights:
+      - Reward configuration fix
+      - EVM-to-native swap fix when native balance is 0
+  - version: 1.0.0
+    date: '2024-05-08'
+    breaking: false
+    highlights:
+      - Integration test suite
+      - Fixed total supply and validator reward-pot features
+window: >-
+  Complete list of published GitHub releases (14 tags, 2024-05-08 through 2024-10-07). No release has been cut
+  since 2024-10-07; the most recent repository activity is a push on 2025-09-22.

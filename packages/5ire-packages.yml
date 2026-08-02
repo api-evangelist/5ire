@@ -1,0 +1,194 @@
+generated: '2026-08-02'
+method: searched
+source: >-
+  npm registry (registry.npmjs.org) scope @5ire, Docker Hub org 5irechain, and the 5ire-tech GitHub organization.
+  Registries probed with no first-party 5ire result: PyPI (404 for "5ire"), crates.io, Maven Central, NuGet,
+  RubyGems, Packagist, pkg.go.dev.
+notes: >-
+  5ire's client-library surface is a fork of the Polkadot.js API published under the @5ire npm scope, matching the
+  Substrate/Polkadot-SDK core of 5ireChain. The scope is first-party (publisher contact e-mail contact@5ire.org,
+  Apache-2.0, repository github.com/5ire-org) but has not been republished since December 2021 and its source
+  organization github.com/5ire-org currently exposes zero public repositories. Several package-level author fields
+  still carry the upstream Polkadot.js maintainer (jacogr@gmail.com), an artifact of the fork. EVM-side developers
+  are directed by 5ire's own documentation to standard Ethereum libraries (ethers.js, web3.js, wagmi, Hardhat,
+  Foundry, Remix) pointed at the 5ireChain JSON-RPC endpoint rather than to a 5ire-specific SDK.
+packages:
+  - language: javascript
+    registry: npm
+    name: '@5ire/api'
+    url: https://www.npmjs.com/package/@5ire/api
+    install: npm install @5ire/api
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: Promise and RxJS wrappers around the 5ire JS RPC (Polkadot.js API fork).
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/rpc-provider'
+    url: https://www.npmjs.com/package/@5ire/rpc-provider
+    install: npm install @5ire/rpc-provider
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: Transport providers (WebSocket/HTTP) for the 5ire JS API.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/rpc-core'
+    url: https://www.npmjs.com/package/@5ire/rpc-core
+    install: npm install @5ire/rpc-core
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: JavaScript wrapper for the Substrate JSON-RPC interface.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/types'
+    url: https://www.npmjs.com/package/@5ire/types
+    install: npm install @5ire/types
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: SCALE (Parity codec) type implementations for 5ireChain.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/types-known'
+    url: https://www.npmjs.com/package/@5ire/types-known
+    install: npm install @5ire/types-known
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: Known chain type definitions.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/types-support'
+    url: https://www.npmjs.com/package/@5ire/types-support
+    install: npm install @5ire/types-support
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: Supporting files for types, mostly for testing.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/api-contract'
+    url: https://www.npmjs.com/package/@5ire/api-contract
+    install: npm install @5ire/api-contract
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: Interfaces for interacting with WASM contracts and contract ABIs.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/api-derive'
+    url: https://www.npmjs.com/package/@5ire/api-derive
+    install: npm install @5ire/api-derive
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: Common derived functions over RPC calls and storage queries.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/typegen'
+    url: https://www.npmjs.com/package/@5ire/typegen
+    install: npm install @5ire/typegen
+    version: 0.2.2
+    published: '2021-12-27'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-api
+    description: Type generation scripts for chain metadata.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/util'
+    url: https://www.npmjs.com/package/@5ire/util
+    install: npm install @5ire/util
+    version: 0.1.4
+    published: '2021-12-23'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-common
+    description: Shared utility helpers for the 5ire JS stack.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/dev'
+    url: https://www.npmjs.com/package/@5ire/dev
+    install: npm install --save-dev @5ire/dev
+    version: 0.1.4
+    published: '2021-12-17'
+    license: Apache-2.0
+    repository: https://github.com/5ire-org/5ire-js-dev
+    description: Shared CI scripts and development environment for @5ire projects.
+    official: true
+  - language: javascript
+    registry: npm
+    name: '@5ire/ui-kit'
+    url: https://www.npmjs.com/package/@5ire/ui-kit
+    install: npm install @5ire/ui-kit
+    version: 2.1.4
+    published: '2022-11-01'
+    license: MIT
+    repository: https://github.com/5ire-org/ui-kit
+    description: 5ire design-system UI kit.
+    official: true
+containers:
+  - registry: docker-hub
+    name: 5irechain/5ire-node
+    url: https://hub.docker.com/r/5irechain/5ire-node
+    install: docker pull 5irechain/5ire-node:mainnet
+    pulls: 952
+    last_updated: '2024-07-17'
+    description: 5ireChain mainnet node image.
+    official: true
+  - registry: docker-hub
+    name: 5irechain/5ire-thunder-node
+    url: https://hub.docker.com/r/5irechain/5ire-thunder-node
+    install: docker pull 5irechain/5ire-thunder-node:ga
+    pulls: 4170
+    last_updated: '2025-04-07'
+    description: 5ireChain Thunder testnet node image.
+    official: true
+templates:
+  - name: foundry-template
+    url: https://github.com/5ire-tech/foundry-template
+    description: Foundry template for 5ireChain smart contract development.
+    official: true
+  - name: subgraph-template
+    url: https://github.com/5ire-tech/subgraph-template
+    description: How to index a subgraph on 5ireChain.
+    official: true
+  - name: marketplace-template
+    url: https://github.com/5ire-tech/marketplace-template
+    description: NFT marketplace starter template for 5ireChain.
+    official: true
+  - name: create-5ire-dapp
+    registry: npm
+    url: https://www.npmjs.com/package/create-5ire-dapp
+    install: npx create-5ire-dapp
+    description: Full-stack React + Hardhat/Truffle starter for the 5ire testnet.
+    official: false
+    note: Community-published (github.com/sambitsargam/create-5ire-dapp), not under a 5ire-controlled namespace.
+registries_probed:
+  - {registry: npm, result: 12 first-party packages under the @5ire scope}
+  - {registry: docker-hub, result: 2 first-party images under 5irechain}
+  - {registry: pypi, result: no first-party package (HTTP 404 for /pypi/5ire/json)}
+  - {registry: crates.io, result: no first-party crate}
+  - {registry: maven-central, result: none}
+  - {registry: nuget, result: none}
+  - {registry: rubygems, result: none}
+  - {registry: packagist, result: none}
+  - {registry: pkg.go.dev, result: none}

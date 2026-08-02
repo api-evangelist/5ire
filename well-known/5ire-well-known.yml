@@ -1,0 +1,34 @@
+generated: '2026-08-02'
+method: probed
+source: live HTTPS probes on 2026-08-02
+result: none
+notes: >-
+  No /.well-known/ discovery document could be retrieved from any 5ire host. Every 5ire-operated production host
+  returned Cloudflare HTTP 530 (origin error 1016) for all probed paths on 2026-08-02, and the legacy
+  5ire.webflow.io marketing site returned a clean 404 for all of them. An Internet Archive capture of
+  docs.5ire.org/.well-known/security.txt (2025-04-11) shows the Astro/Starlight single-page catch-all returning
+  the HTML docs shell rather than an RFC 9116 document, so 5ire published no security.txt even while the origin
+  was healthy. No pointer of type WellKnown or SecurityTxt is wired in apis.yml because no document exists.
+hosts_probed:
+  - 5ire.org
+  - www.5ire.org
+  - docs.5ire.org
+  - rpc.5ire.network
+  - 5irescan.io
+  - testnet.5irescan.io
+  - explorer.5ire.network
+  - staking.5ire.network
+  - 5ire.webflow.io
+paths_probed:
+  - /.well-known/security.txt
+  - /.well-known/openid-configuration
+  - /.well-known/oauth-authorization-server
+  - /.well-known/oauth-protected-resource
+  - /.well-known/api-catalog
+  - /.well-known/ai-plugin.json
+  - /.well-known/agent-card.json
+  - /.well-known/agent.json
+documents: []
+probe_results:
+  - {hosts: 8, status: 530, note: 'Cloudflare origin error 1016 on all 5ire-operated hosts, all paths'}
+  - {hosts: 1, status: 404, note: '5ire.webflow.io (legacy Webflow marketing site) returns 404 for all paths'}
