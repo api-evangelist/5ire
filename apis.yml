@@ -129,6 +129,15 @@ maintainers:
   - FN: APIs.json
     email: info@apis.io
 common:
+  - type: IssueTracker
+    url: https://github.com/5ire-tech/5ireChain/issues
+  - type: Releases
+    url: https://github.com/5ire-tech/5ireChain/releases
+  - type: CodeOfConduct
+    url: https://github.com/5ire-tech/5ireChain/blob/master/docs/CODE_OF_CONDUCT.md
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/5ire-tech/5ireChain/blob/master/LICENSE
   - type: Website
     url: https://5ire.org/
   - type: DeveloperPortal
