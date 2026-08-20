@@ -39,6 +39,19 @@ specificationVersion: '0.23'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
+  - Blockchain
+  - Layer 1
+  - Smart Contracts
+  - EVM
+  - Web3
+  - Substrate
+  - JSON-RPC
+  - Sustainability
+  - ESG
+  - Proof of Stake
+  - Cryptocurrency
+  - Developer Tools
+tags_raw:
   - blockchain
   - layer-1
   - smart-contracts
@@ -62,6 +75,13 @@ apis:
     humanURL: https://docs.5ire.org/build-on-5irechain/evm-compatibility/
     baseURL: https://rpc.5ire.network
     tags:
+      - Blockchain
+      - Layer 1
+      - EVM
+      - JSON-RPC
+      - Smart Contracts
+      - Web3
+    tags_raw:
       - blockchain
       - layer-1
       - evm
@@ -86,6 +106,13 @@ apis:
     humanURL: https://docs.5ire.org/wallets/metamask/
     baseURL: https://rpc.testnet.5ire.network
     tags:
+      - Blockchain
+      - Testnet
+      - EVM
+      - JSON-RPC
+      - Sandbox
+      - Web3
+    tags_raw:
       - blockchain
       - testnet
       - evm
@@ -110,6 +137,13 @@ apis:
     humanURL: https://docs.5ire.org/deploy-smart-contracts/native-chain-wasm/
     baseURL: https://rpc.5ire.network
     tags:
+      - Blockchain
+      - Substrate
+      - Wasm
+      - RPC
+      - Staking
+      - Web3
+    tags_raw:
       - blockchain
       - substrate
       - wasm
