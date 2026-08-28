@@ -11,6 +11,18 @@ description: >-
   Supporting surfaces include the 5irescan block explorer, a testnet faucet, validator and nominator applications,
   the 5ire wallet browser extension, and a 5ire IDE for contract deployment. 5ire has raised roughly USD 121M and
   trades on secondary private markets; it publishes no OpenAPI, AsyncAPI, MCP server or A2A agent card.
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/u/106282920?v=4
 url: https://raw.githubusercontent.com/api-evangelist/5ire/refs/heads/main/apis.yml
 x-type: company
