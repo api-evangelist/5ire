@@ -52,16 +52,16 @@ created: '2026-08-02'
 modified: '2026-08-02'
 tags:
   - Blockchain
-  - Layer 1
-  - Smart Contracts
+  - layer-1
+  - smart-contracts
   - EVM
   - Web3
-  - Substrate
-  - JSON-RPC
-  - Sustainability
+  - substrate
+  - json-rpc
+  - sustainability
   - ESG
-  - Proof of Stake
-  - Cryptocurrency
+  - proof-of-stake
+  - cryptocurrency
   - Developer Tools
 tags_raw:
   - blockchain
@@ -88,10 +88,10 @@ apis:
     baseURL: https://rpc.5ire.network
     tags:
       - Blockchain
-      - Layer 1
+      - layer-1
       - EVM
-      - JSON-RPC
-      - Smart Contracts
+      - json-rpc
+      - smart-contracts
       - Web3
     tags_raw:
       - blockchain
@@ -119,10 +119,10 @@ apis:
     baseURL: https://rpc.testnet.5ire.network
     tags:
       - Blockchain
-      - Testnet
+      - testnet
       - EVM
-      - JSON-RPC
-      - Sandbox
+      - json-rpc
+      - sandbox
       - Web3
     tags_raw:
       - blockchain
@@ -150,10 +150,10 @@ apis:
     baseURL: https://rpc.5ire.network
     tags:
       - Blockchain
-      - Substrate
-      - Wasm
-      - RPC
-      - Staking
+      - substrate
+      - wasm
+      - rpc
+      - staking
       - Web3
     tags_raw:
       - blockchain
