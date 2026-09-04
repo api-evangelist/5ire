@@ -23,6 +23,20 @@ deliveryModel:
   - license
   generated: '2026-08-28'
   method: derived
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  - security
+  - sandbox
+  generated: '2026-09-02'
+  method: derived
 image: https://avatars.githubusercontent.com/u/106282920?v=4
 url: https://raw.githubusercontent.com/api-evangelist/5ire/refs/heads/main/apis.yml
 x-type: company
