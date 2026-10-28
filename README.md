@@ -64,44 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-5ire (5ireChain) is a layer-1, EVM-compatible smart contract blockchain built on the Polkadot SDK (Substrate),
-founded in 2021 and headquartered in Dubai with engineering in India. Its Sustainable Proof of Stake /
-"Proof of 5ire" consensus weights validator selection and rewards by ESG performance, aligned to the UN
-Sustainable Development Goals.
+5ire (5ireChain) is a layer-1, EVM-compatible smart contract blockchain built on the Polkadot SDK (Substrate), founded in 2021 and headquartered in Dubai with engineering in India. The chain positions sustainability as a first-class protocol concern: its Sustainable Proof of Stake / "Proof of 5ire" consensus scores validators against ESG data so block production and rewards are weighted by environmental and social performance, aligned to the UN Sustainable Development Goals. Developers reach the network through a standard Ethereum JSON-RPC endpoint (mainnet chain ID 995, Thunder testnet chain ID 997) using MetaMask, Hardhat, Foundry, Remix, wagmi and Ganache, or through the native Substrate/WASM side of the chain via the Polkadot-derived @5ire/api JavaScript client. Supporting surfaces include the 5irescan block explorer, a testnet faucet, validator and nominator applications, the 5ire wallet browser extension, and a 5ire IDE for contract deployment. 5ire has raised roughly USD 121M and trades on secondary private markets; it publishes no OpenAPI, AsyncAPI, MCP server or A2A agent card.
 
-- Website: https://5ire.org/
-- Docs: https://docs.5ire.org/
-- Source: https://github.com/5ire-tech
-- Blog: https://5ire.medium.com/
-- Secondary market listing: https://forgeglobal.com/5ire_stock/
+**Areas:** Blockchain · Layer 1 · Smart Contracts · EVM · Web3 · Substrate · JSON-RPC · Sustainability · ESG · Proof of Stake · Cryptocurrency · Developer Tools
 
-## Not to be confused with
+## 5ire on APIs.io
 
-This repo profiles **5ire / 5ireChain, the blockchain company**. It is **not** [5ire.app](https://5ire.app)
-(`github.com/nanbingxyz/5ire`), an unrelated open-source cross-platform desktop AI assistant and MCP client that
-shares the name. Do not merge artifacts from the two.
+Everything profiled for 5ire is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/5ire/](https://apis.io/providers/5ire/)** — or go straight to one of the APIs or properties below.
 
-## API surface
+### APIs (3)
 
-5ire publishes **no OpenAPI, AsyncAPI, GraphQL, MCP server or A2A agent card.** The developer contract is the
-Ethereum JSON-RPC 2.0 method set on the EVM machine, plus the Polkadot-SDK RPC set on the native chain:
+- [5ireChain Mainnet JSON-RPC](https://apis.io/apis/5ire/5irechain-mainnet-json-rpc/) — Ethereum-compatible JSON-RPC 2.0 endpoint for the 5ireChain mainnet (EIP-155 chain ID 995, native currency 5ire, 18 decimals). Serves the standard eth_*,…
+- [5ireChain Thunder Testnet JSON-RPC](https://apis.io/apis/5ire/5irechain-thunder-testnet-json-rpc/) — Ethereum-compatible JSON-RPC 2.0 endpoint for the 5ireChain Thunder testnet (EIP-155 chain ID 997, native currency T5IRE). Paired with a public faucet and a…
+- [5ireChain Native (Substrate) RPC](https://apis.io/apis/5ire/5irechain-native-substrate-rpc/) — Substrate/Polkadot-SDK RPC surface of the 5ireChain node, reached over WebSocket (default port 9944) and consumed through the first-party @5ire/api…
 
-| Network | Chain ID | RPC | Explorer |
-|---|---|---|---|
-| Mainnet | 995 | `https://rpc.5ire.network` | https://5irescan.io |
-| Thunder testnet | 997 | `https://rpc.testnet.5ire.network` | https://testnet.5irescan.io |
+### Published properties
 
-Both endpoints are public and unauthenticated — there is no API key. Authority for state changes comes from the
-transaction signature, not from a credential presented to the endpoint.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Availability note — observed 2026-08-02
+#### Security (2)
 
-Every 5ire-operated production host (`5ire.org`, `docs.5ire.org`, `rpc.5ire.network`, `5irescan.io`,
-`testnet.5irescan.io`, `explorer/staking/validator/nominator.5ire.network`) returned **Cloudflare HTTP 530
-(origin error 1016)**, and `rpc.testnet.5ire.network` did not resolve in DNS. Domain registration, DNSSEC and TLS
-certificates are intact, and the last Internet Archive 200 for `docs.5ire.org` is 2025-12-11 — so this reads as an
-origin/hosting outage rather than a lapsed domain. Documentation content captured in this repo was verified against
-Internet Archive snapshots; every probe and its status code is recorded in `lifecycle/5ire-lifecycle.yml`.
+Authentication, trust centre, and vulnerability disclosure.
 
-Third-party surfaces remain live: GitHub (`5ire-tech`, 10 repos), npm (`@5ire` scope), Docker Hub (`5irechain`),
-Medium, Discord, X and Telegram.
+- [5Ire Authentication](https://apis.io/security/5ire/5ire-authentication/)
+- [5Ire Domain Security](https://apis.io/security/5ire/5ire-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://5ire.org/)
+- [Documentation](https://docs.5ire.org/)
+- [Getting started](https://docs.5ire.org/introduction-to-5irechain/)
+- [Support](https://discord.com/invite/5ire)
+- [Blog](https://5ire.medium.com/)
+- [GitHub](https://github.com/5ire-tech)
+
+## API Evangelist rating
+
+**Kin Score 23.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 48.8 |
+| Access clarity | 0.0 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/5ire/](https://apis.io/providers/5ire/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 5ire: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/5ire/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
